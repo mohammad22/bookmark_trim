@@ -2,4 +2,4 @@
 
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-python $DIR\/pdfb_trim.py $*
+python "$DIR/pdfb_trim.py" $*
