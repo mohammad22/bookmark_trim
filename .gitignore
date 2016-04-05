@@ -1,0 +1,7 @@
+.directory
+.DS_Store
+*.swp
+*.swo
+*.pyc
+
+
