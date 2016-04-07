@@ -12,7 +12,11 @@ A bunch of command-line helper functions for pdf and djvu files (possibly the wh
 
 + Compress and trim the pdf files. This one needs `ghostscript` on your machine:
 
-    `pdfb.sh path-to-pdf-file-or-directory`
+    `pdfb.sh -sw . path-to-pdf-file-or-directory`
+
++ Do not trim, just optimize the pdf files:
+ 
+    `pdfb.sh -s path-to-padf-file-or-directory`
 
 + Pdf2djvu for all the files of a directory (this is just a wrapper for the pdf2djvu utility for LizardTech, so it is needed to be installed). Also it picks some very specific parameters for `pdf2djvu` utility which I found generally useful for converting black-white pdfs to djvu, so use at your own risk.
 
