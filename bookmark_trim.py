@@ -65,7 +65,7 @@ def max_match(s, t):
     return a
                 
 
-def bookmark_trim(file1 = None, stop = False):
+def bookmark_trim(file1 = None, stop = False, stop_words = ['.']):
     
     """ 
     Creates a trimmed text file file2 = "file_new.txt" in the same path
@@ -82,9 +82,9 @@ def bookmark_trim(file1 = None, stop = False):
     g = open(file2, 'w')
     
     a = []
-    
-    stop_words = ['Chapter:', 'Chapter', 'Part:', 'Part','Appendix:', 'Appendix', 'Sub-section:','Sub-section', 'Subsection:' ,'Subsection', 'Section:', 'Section']    
-    
+    if stop_words == ['.']:
+        stop_words = ['Chapter:', 'Chapter', 'Part:', 'Part','Appendix:', 'Appendix', 'Sub-section:','Sub-section', 'Subsection:' ,'Subsection', 'Section:', 'Section']    
+          
     tt = ['\t']
     rec_l(tt, '\t') 
     
