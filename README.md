@@ -17,9 +17,13 @@ Now, for example:
    
    will trim the bookmarks. This functionality requires `jpdfbookmarks` on your machine.
 
-* To Compress and trim the pdf files. This one needs `ghostscript` on your machine:
+* To Compress and trim the pdf files with default stop_words. This one needs `ghostscript` on your machine:
 
-    `pdfb.sh path-to-pdf-file-or-directory -sw . `
+    `pdfb.sh path-to-pdf-file-or-directory  `
+
+* To trim the word "dummy" from the beginging of the title:
+
+    `pdfb.sh path-to-dir -w dummy`
 
 * To use optimization without trimming bookmarks:
  
