@@ -11,7 +11,7 @@ import os.path as osp
 import os
 
 
-def pdf_trimmer(pdf, stop = False, stop_optimize = False, stop_words = ['.']):
+def pdf_trimmer(pdf, stop = False, stop_optimize = False, stop_words = None):
     """ takes the path of a valid pdf file as pdf and trims its bookmarks
         and optimizes if asked.
         If stop is True it does not clean the repetitive words of the
@@ -111,7 +111,8 @@ if __name__ == "__main__":
             is otherwise.")
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-s", "--stop", action = "store_true", help = "Stops cleaning self-evident words, e.g., Chapter, section, .. in the beging of bookmarks.")
-    group.add_argument("-w","--words", metavar = 'words', nargs ='+', help='list of words to trim from the begining of the bookmark titles, this option is chosen and is set to ".", then the default will be used:\n [Chapter, Section, Subsection, Part, Appendix].' )
+    group.add_argument("-w","--words", metavar = 'words', nargs ='+', help='list of words to trim from the begining of the bookmark titles, if you want the default stop_words to be trimmed, just do not use this option.\n Default
+    stop words: [Chapter, Section, Subsection, Part, Appendix].' )
  
     args = parser.parse_args()
 
@@ -144,6 +145,10 @@ if __name__ == "__main__":
     ###############
     ## The main ###
     ###############
+ 
+
+    if args.words is None:
+        args.words = ['.']
 
     if osp.isfile(pdf):
         pdf_trimmer(pdf, args.stop, args.stop_optimize, args.words)
