@@ -6,17 +6,17 @@ A bunch of command-line helper functions for pdf and djvu files (possibly the wh
 
    If you have smylinked the file `pdfb.sh` in your path (no need to say, first you should `chmod +x pdfb.sh` in the directory of files) then:
 
-   `pdfb.sh -so path-to-pdf-file-or-directory`
+   `pdfb.sh path-to-pdf-file-or-directory -so`
    
    will trim the bookmarks. This functionality requires `jpdfbookmarks` on your machine.
 
 + Compress and trim the pdf files. This one needs `ghostscript` on your machine:
 
-    `pdfb.sh -sw . path-to-pdf-file-or-directory`
+    `pdfb.sh path-to-pdf-file-or-directory -sw . `
 
 + Do not trim, just optimize the pdf files:
  
-    `pdfb.sh -s path-to-padf-file-or-directory`
+    `pdfb.sh  path-to-padf-file-or-directory -s`
 
 + Pdf2djvu for all the files of a directory (this is just a wrapper for the pdf2djvu utility for LizardTech, so it is needed to be installed). Also it picks some very specific parameters for `pdf2djvu` utility which I found generally useful for converting black-white pdfs to djvu, so use at your own risk.
 

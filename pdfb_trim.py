@@ -11,7 +11,7 @@ import os.path as osp
 import os
 
 
-def pdf_trimmer(pdf, stop = False, stop_optimize = False, stop_words):
+def pdf_trimmer(pdf, stop = False, stop_optimize = False, stop_words = ['.']):
     """ takes the path of a valid pdf file as pdf and trims its bookmarks
         and optimizes if asked.
         If stop is True it does not clean the repetitive words of the
@@ -105,13 +105,14 @@ if __name__ == "__main__":
             all the pdf files in this  directory will be treated.')
     parser.add_argument('pdf', help = "trims and tries to optimize \
             the bookmarks in this pdf file (or directory)." )  
-    group = parser.add_mutually_exclusive_group()
-    group.add_argument("-s", "--stop", action = "store_true", help = "Stops cleaning self-evident words, e.g., Chapter, section, .. in the beging of bookmarks.")
-    group.add_argument("-w","--stop_words", metavar = 'stop_words', nargs ='+', default=None, help='list of stop_words to trim from the begining of the bookmark titles, this option is chosen and is set to ".", then the default will be used:\n [Chapter, Section, Subsection, Part, Appendix].' )
- 
+
     parser.add_argument("-so", "--stop_optimize", action = "store_true", \
             help = "Stops trying to optimize the pdf file (the default)\
             is otherwise.")
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("-s", "--stop", action = "store_true", help = "Stops cleaning self-evident words, e.g., Chapter, section, .. in the beging of bookmarks.")
+    group.add_argument("-w","--words", metavar = 'words', nargs ='+', help='list of words to trim from the begining of the bookmark titles, this option is chosen and is set to ".", then the default will be used:\n [Chapter, Section, Subsection, Part, Appendix].' )
+ 
     args = parser.parse_args()
 
    
@@ -145,7 +146,7 @@ if __name__ == "__main__":
     ###############
 
     if osp.isfile(pdf):
-        pdf_trimmer(pdf, args.stop, args.stop_optimize, args.stop_words)
+        pdf_trimmer(pdf, args.stop, args.stop_optimize, args.words)
     
     elif osp.isdir(pdf):
         YES = {"YE", "Y", "YES", "YEAH", "YEA"}
@@ -162,7 +163,7 @@ if __name__ == "__main__":
                 raw_input("Press any key to continue...")
                 """
                 if osp.splitext(ff)[1] == ".pdf":
-                    pdf_trimmer(ff, args.stop, args.stop_optimize, args.stop_words)
+                    pdf_trimmer(ff, args.stop, args.stop_optimize, args.words)
         
         elif s.upper() in NO:
             print "Okay! May be next time!\n"
