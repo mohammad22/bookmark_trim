@@ -2,11 +2,14 @@
 A bunch of command-line helper functions for pdf and djvu files (possibly the whole files in a directory). It can:
 
 + Trim and collapse the bookmarks of the files in the directory. 
-  The 'trim' functionality, washes the redundant words like 'Chapter', 'Section', 'Appendix' from the bookmark titles. You can have your own collection of stop-words to be washed from bookmark titles which should be declared as parameter on command line (See help of the command line function). You can alos disable the trimming functionality.
+
++ Compress the `pdf` files in the directory, using `ghostscript`.
+
++  The 'trim', washes the redundant words, i.g., 'Chapter', 'Section', 'Appendix', ... from the bookmark titles. You can have your own collection of stop-words. (See more about this on help `pdf.sh -h`). You can alos disable the trimming functionality.
 
    Usage: 
    
-+ First `git clone` the repository, `cd` to that directory and do `cmod +x pdfb.sh`. Then make a smylink to the `pdfb.sh` on your environment path.
+* First `git clone` the repository, `cd` to that directory and do `cmod +x pdfb.sh`. Then make a smylink to the `pdfb.sh` on your environment path.
 Now, for example: 
 
 
@@ -14,11 +17,11 @@ Now, for example:
    
    will trim the bookmarks. This functionality requires `jpdfbookmarks` on your machine.
 
-+ Compress and trim the pdf files. This one needs `ghostscript` on your machine:
+* To Compress and trim the pdf files. This one needs `ghostscript` on your machine:
 
     `pdfb.sh path-to-pdf-file-or-directory -sw . `
 
-+ Do not trim, just optimize the pdf files:
+* To use optimization without trimming bookmarks:
  
     `pdfb.sh  path-to-padf-file-or-directory -s`
 
