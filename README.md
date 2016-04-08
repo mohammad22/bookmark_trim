@@ -4,7 +4,11 @@ A bunch of command-line helper functions for pdf and djvu files (possibly the wh
 + Trim and collapse the bookmarks of the files in the directory. 
   The 'trim' functionality, washes the redundant words like 'Chapter', 'Section', 'Appendix' from the bookmark titles. You can have your own collection of stop-words to be washed from bookmark titles which should be declared as parameter on command line (See help of the command line function). You can alos disable the trimming functionality.
 
-   If you have smylinked the file `pdfb.sh` in your path (no need to say, first you should `chmod +x pdfb.sh` in the directory of files) then:
+   Usage: 
+   
++ First `git clone` the repository, `cd` to that directory and do `cmod +x pdfb.sh`. Then make a smylink to the `pdfb.sh` on your environment path.
+Now, for example: 
+
 
    `pdfb.sh path-to-pdf-file-or-directory -so`
    
