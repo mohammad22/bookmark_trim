@@ -134,27 +134,4 @@ def clean_tabs(txt):
     return new_txt
 
 
-def main(file1, stop): 
-    """
-    See the documentation, on the command-line "python bookmark-trim.py -h".
-    """
-    bookmark_trim(file1, stop)
 
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description = "Trims the bookmark text\
-            'file1', and writes the trimmed bookamrk file in a new file\
-            'file1_new'. if the flag --stop (-s) is on, then cleaning \
-            selfevident words, e.g., Chapter, Section, Part, ...,  will be\
-            de-activated as well (the opposite is the default).")
-    parser.add_argument("file1", help = "Trims the bookmark in this text \
-            file.", type = str)
-    parser.add_argument("-s", "--stop", action = "store_true", help =\
-            "Stops cleaning self-evident words, e.g., Chapter, section, ..\
-            in the beging of bookmarks.")
-    args = parser.parse_args()
-    if osp.exists(args.file1):
-        main(args.file1, args.stop)
-    else: 
-        print "The filename ", args.file1, " should refer to an existing\
-                file!\n"
