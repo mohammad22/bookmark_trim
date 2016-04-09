@@ -111,8 +111,7 @@ if __name__ == "__main__":
             is otherwise.")
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-s", "--stop", action = "store_true", help = "Stops cleaning self-evident words, e.g., Chapter, section, .. in the beging of bookmarks.")
-    group.add_argument("-w","--words", metavar = 'words', nargs ='+', help='list of words to trim from the begining of the bookmark titles, if you want the default stop_words to be trimmed, just do not use this option.\n Default
-    stop words: [Chapter, Section, Subsection, Part, Appendix].' )
+    group.add_argument("-w","--words", metavar = 'words', nargs ='+', help='list of words to trim from the begining of the bookmark titles, if you want the default stop_words to be trimmed, just do not use this option. Default stop words: [Chapter, Section, Subsection, Part, Appendix].' )
  
     args = parser.parse_args()
 
