@@ -2,7 +2,6 @@ import re
 import codecs
 import sys
 import os.path as osp
-import argparse
 import fnmatch
 
 def expand_l(word, a):
