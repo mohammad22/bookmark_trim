@@ -13,23 +13,26 @@ A bunch of command-line helper functions for pdf and djvu files (possibly the wh
 Now, for example: 
 
 
-   `pdfb.sh path-to-pdf-file-or-directory -so`
+   `pdfb.sh pdf-dir -so`
    
-   will trim the bookmarks. This requires [`jpdfbookmarks`](http://flavianopetrocchi.blogspot.com/) on your machine.
+   will trim the bookmarks, without optimizing the pdf file. This requires [`jpdfbookmarks`](http://flavianopetrocchi.blogspot.com/) on your machine.
 
 * To Compress and trim the pdf files with default stop_words. This needs `ghostscript` on your machine (which by default is available on almost all distributions):
 
-    `pdfb.sh path-to-pdf-file-or-directory  `
+    `pdfb.sh pdf-dir`
 
 * To trim the word "dummy" from the beginging of bookmark titles:
 
-    `pdfb.sh path-to-dir -w dummy`
+    `pdfb.sh pdf-dir -w dummy`
 
 * To use optimization without trimming bookmarks:
  
-    `pdfb.sh  path-to-padf-file-or-directory -s`
+    `pdfb.sh  pdf-dir -s`
 
 + Pdf2djvu for all the files of a directory (this is just a wrapper for the pdf2djvu utility for [LizardTech](https://www.lizardtech.com/) (so, it should be available on your machine). Also it picks some very specific parameters for `pdf2djvu` utility which I found generally useful for converting black-white pdfs to djvu, so use at your own risk.
 
-    `python djvub.py path-to-the-pdf-files`
+    `python djvub.py pdf-dir`
 
++ To just trim the word "dummy" without optimization:
+
+    `pdfb.sh pdf-dir -so -w dummy`
