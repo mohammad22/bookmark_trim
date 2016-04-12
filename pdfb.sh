@@ -1,5 +1,4 @@
 #!/bin/sh
 
-DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-
+DIR="$(dirname "$(readlink -f "$0")")"
 python "$DIR/pdfb_trim.py" $*
